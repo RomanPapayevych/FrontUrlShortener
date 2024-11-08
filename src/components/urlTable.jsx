@@ -11,9 +11,6 @@ const UrlTable = () => {
     const [userRole, setUserRole] = useState(null);
     const [userId, setUserId] = useState(null);
     const [errorMessage, setErrorMessage] = useState("");
-    // const [currentPage, setCurrentPage] = useState(1); 
-    // const [totalPages, setTotalPages] = useState(1);
-    // const [itemsPerPage] = useState(5); 
 
     const email = location.state?.email;
     const token = localStorage.getItem('token');
@@ -22,14 +19,9 @@ const UrlTable = () => {
     const fetchUrls = async () => {
       try {
         const response = await axios.get("https://localhost:7062/api/Url",{
-            // params: {
-            //     page: currentPage,
-            //     pageSize: itemsPerPage,
-            // },
             headers: { Authorization: `Bearer ${token}` }
         });
         setUrls(response.data.$values);
-        //setTotalPages(response.data.totalPages); 
         const decodedToken = jwtDecode(token);
         setUserRole(decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']);
         setUserId(decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier']);

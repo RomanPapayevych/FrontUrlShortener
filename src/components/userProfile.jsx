@@ -13,10 +13,8 @@ const UserProfile = () => {
             <h1 className="pms">UrlTable</h1>
             <div className="action-buttons">
                 <button className="btn create-btn" onClick={handleControl}>Urls list</button>
-                {/* <button className="btn delete-btn" onClick={handleDeletePass}>Delete Passport</button> */}
             </div>
         </div>
-        //<div>AdminProfile</div>
     );
 }
 export default UserProfile;
